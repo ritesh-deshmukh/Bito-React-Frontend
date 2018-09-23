@@ -6,6 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: null,
       isLoaded: false,
       items: []
     };
@@ -20,17 +21,37 @@ class App extends Component {
             isLoaded: true,
             items: result
           });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }
       )
   }
 
   render() {
     const { error, isLoaded, items } = this.state;
-    console.log(this.state.items)
+    console.log(this.state.items[0])
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
       return (
-        <div></div>
+        <div>
+          <ul>
+            {items.map(item => 
+              <li key={item}>
+              {item}  
+            </li>
+            )}
+          </ul>
+        </div>
       );
-    
+    }
   }
 }
 export default App;
