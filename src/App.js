@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Chart_Pie from './components/Chart_Pie';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      data: []
     };
   }
 
@@ -41,14 +41,8 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-          <ul>
-            {items.map(item => 
-              <li key={item}>
-              {item}  
-            </li>
-            )}
-          </ul>
+        <div className="App">
+          <Chart_Pie data={data} />
         </div>
       );
     }
