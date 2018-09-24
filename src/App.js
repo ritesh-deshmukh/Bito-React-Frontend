@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Chart1 from './components/Chart1';
 import Table from './components/Table';
-// import Scroll from './components/Scroll';
-// import ErrorBoundry from './components/ErrorBoundary';
 import Dimensions from 'react-dimensions';
 import './App.css';
 
@@ -25,15 +23,10 @@ class App extends Component {
         { label: '', value: '' },
         { label: '', value: '' },
       ],
-      // table_data: [],
     };
   }  
 
   async componentDidMount() {
-    // fetch("http://127.0.0.1:5000/insert_rand")    
-    // fetch("http://127.0.0.1:5001/")
-    //   .then(response => response.json())
-    //   .then(table_data => this.setState({ table_data }));
     try{
       setInterval(async () => {
         // fetch("http://127.0.0.1:5000/insert_rand")
@@ -82,18 +75,20 @@ class App extends Component {
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded){
-      return <div>Loading page...</div>
+      return <div className='f1 b i tc'>Loading page...</div>
     } else {
         return (
         <div className="App">
           <Header />
+          <p className='f4 i bg red'>Possibilities of a team scoring goals!!!!</p>
+          <p className='f5 i bg red'>Updated Automatically</p>
           <Chart1 
             data={data}
             width={containerWidth}
             height={containerHeight}
           />
-
-          <h1 className='tc f1 i'>Data From Chart Displayed Above</h1>
+          <p className='tc b f1 i'>Data From Chart Displayed Above</p>
+          <p className='tc b f3 i'>Automatically Updated</p>
           <Table />
           
         </div>
