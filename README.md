@@ -1,5 +1,10 @@
 ﻿<h1><b>Bito Visualization Front-End</b></h1>
 
+<h2>Live Link</h2>
+
+<h2><b>https://bito-visualization-reactapp.herokuapp.com/</b></h2>
+<p>You will have to manually load scripts on your browser if you see an error.</p>
+
 <i>Download/Clone -> npm install -> npm start</i>
 
 <h2>Components Used:</h2>
