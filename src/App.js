@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Chart1 from './components/Chart1';
 import Table from './components/Table';
+// import Scroll from './components/Scroll';
+// import ErrorBoundry from './components/ErrorBoundary';
 import Dimensions from 'react-dimensions';
 import './App.css';
 
@@ -34,7 +36,7 @@ class App extends Component {
     //   .then(table_data => this.setState({ table_data }));
     try{
       setInterval(async () => {
-        fetch("http://127.0.0.1:5000/insert_rand")
+        // fetch("http://127.0.0.1:5000/insert_rand")
         fetch("http://127.0.0.1:5001/next10")
         .then(res => res.json())
         .then(
@@ -90,7 +92,10 @@ class App extends Component {
             width={containerWidth}
             height={containerHeight}
           />
+
+          <h1 className='tc f1 i'>Data From Chart Displayed Above</h1>
           <Table />
+          
         </div>
 
       );

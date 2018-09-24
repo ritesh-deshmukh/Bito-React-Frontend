@@ -1,17 +1,27 @@
 import React from 'react';
+import Scroll from './Scroll'
+import ErrorBoundary from './ErrorBoundary'
+
+
 class Table extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { data: [] }
 	}
 	
-	loadData() {
-		fetch('http://127.0.0.1:5001/')
+	async loadData() {
+		try{
+			setInterval(async () => {
+				fetch('http://127.0.0.1:5001/display10')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data.test_teams_rand })
-		})
+				})
 			.catch(err => console.error(this.props.url, err.toString()))
+			},500)
+			}catch(e){
+		      console.log(e)
+		    }
 	}
 	
 	componentDidMount() {
@@ -20,22 +30,33 @@ class Table extends React.Component {
 	
   render() {
     return(
-			<div>
-				<tbody>
-					<tr className=''>
-						<th>Team Name</th>
-						<th>Team Wins</th>
-						<th>Team Goals</th>
-					</tr>
-	      			{ this.state.data.map((item, i) => {
-					return <tr className='item'>
-								<td>{item.team_name}</td>
-								<td>{item.team_noofwins}</td>
-								<td>{item.team_goals}</td>
+			<div style={{display: 'flex', justifyContent: 'center'}} className="bg blue">
+				<Scroll>
+					<ErrorBoundary>
+						<tbody>
+							<tr className='f2 i'>
+								<th>Team Name</th>&nbsp;
+								<th>Team Wins</th>&nbsp;
+								<th>Team Goals</th>
 							</tr>
-				        })
-				      }
-    			</tbody>;
+							
+			      			{ this.state.data.map((item, i) => {
+							return (
+									<tr className='tc'>
+										<td className='tc pa2'>{item.team_name}</td>
+										<td className='pl2'></td>
+										<td className='tc pa2'>{item.team_noofwins}</td>
+										<td className='pl2'></td>
+										<td className='tc pa2'>{item.team_goals}</td>
+									</tr>
+								)						
+									
+						        })
+						      }
+						      
+		    			</tbody>;
+	    			</ErrorBoundary>
+				</Scroll>
 			</div>
     	) 
   }
