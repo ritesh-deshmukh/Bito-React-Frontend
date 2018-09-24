@@ -29,8 +29,9 @@ class App extends Component {
   async componentDidMount() {
     try{
       setInterval(async () => {
-        // fetch("http://127.0.0.1:5000/insert_rand")
-        fetch("http://127.0.0.1:5001/next10")
+        // fetch("http://127.0.0.1:5000/insert_random")
+        fetch("http://flask-env.vcvtfj4hvp.us-east-2.elasticbeanstalk.com/insert_random")
+        fetch("http://flask-env1.xxwp3niah9.us-east-2.elasticbeanstalk.com/next10")
         .then(res => res.json())
         .then(
           (result) => {

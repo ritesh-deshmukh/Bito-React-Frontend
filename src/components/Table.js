@@ -12,7 +12,7 @@ class Table extends React.Component {
 	async loadData() {
 		try{
 			setInterval(async () => {
-				fetch('http://127.0.0.1:5001/display10')
+				fetch('http://flask-env1.xxwp3niah9.us-east-2.elasticbeanstalk.com/display10')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data.test_teams_rand })
