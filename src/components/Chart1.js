@@ -21,29 +21,31 @@ const pieChart = pie()
   .value(d => d.value);
 
 const Chart1 = ({ data, width, height }) => (
-  <svg 
-    width={width} 
-    height={height}
-    viewBox={`0 0 ${size} ${size}`}
-    >
-    <g transform={`translate(${radius}, ${radius})`}>
-      {pieChart(data).map((d, i) => (
-        <g key={i} className="arc">
-          <path
-            d={dataArc(d)}
-            fill={colour(d.data.label)}
-          />
+  <div className='relative top-0'>
+    <svg    
+      width={width} 
+      height={height}
+      viewBox={`0 0 ${size} ${size}`}
+      >
+      <g transform={`translate(${radius}, ${radius})`}>
+        {pieChart(data).map((d, i) => (
+          <g key={i} className="arc">
+            <path
+              d={dataArc(d)}
+              fill={colour(d.data.label)}
+            />
 
-          <text
-            dy=".35em"
-            transform={`translate(${labelArc.centroid(d)})`}
-          >
-            {d.data.label}
-          </text>
-        </g>
-      ))}
-    </g>
-  </svg>
+            <text
+              dy=".35em"
+              transform={`translate(${labelArc.centroid(d)})`}
+            >
+              {d.data.label}
+            </text>
+          </g>
+        ))}
+      </g>
+    </svg>
+  </div>
 );
 
 export default Chart1;

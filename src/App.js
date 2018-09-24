@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Chart1 from './components/Chart1';
+import Table from './components/Table';
 import Dimensions from 'react-dimensions';
 import './App.css';
 
@@ -22,15 +23,18 @@ class App extends Component {
         { label: '', value: '' },
         { label: '', value: '' },
       ],
-      time: Date.now(),
+      // table_data: [],
     };
   }  
 
   async componentDidMount() {
-    // fetch("http://127.0.0.1:5000/insert_rand")
+    // fetch("http://127.0.0.1:5000/insert_rand")    
+    // fetch("http://127.0.0.1:5001/")
+    //   .then(response => response.json())
+    //   .then(table_data => this.setState({ table_data }));
     try{
       setInterval(async () => {
-        // fetch("http://127.0.0.1:5000/insert_rand")
+        fetch("http://127.0.0.1:5000/insert_rand")
         fetch("http://127.0.0.1:5001/next10")
         .then(res => res.json())
         .then(
@@ -58,7 +62,7 @@ class App extends Component {
             });
           }
         )
-      },5000)
+      },500)
     } catch(e){
       console.log(e)
     }
@@ -86,7 +90,9 @@ class App extends Component {
             width={containerWidth}
             height={containerHeight}
           />
+          <Table />
         </div>
+
       );
     }
     
