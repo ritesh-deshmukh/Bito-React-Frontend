@@ -1,9 +1,8 @@
 ﻿<h1><b>Bito Visualization Front-End</b></h1>
 
 <h2>Live Link</h2>
-
-<h2><b>https://bito-visualization-reactapp.herokuapp.com/</b></h2>
-<p>You will have to manually load scripts on your browser if you see an error.</p>
+<p>Hosted on AWS S3 Bucket</p>
+<h2><b>http://bito-visualization-reactapp.s3-website-us-east-1.amazonaws.com/</b></h2>
 
 <i>Download/Clone -> npm install -> npm start</i>
 
