@@ -1,14 +1,13 @@
-﻿https://www.npmjs.com/package/d3-scale
-npm install d3-scale
+﻿<h1><b>Bito Visualization Front-End</b></h1>
 
-https://www.npmjs.com/package/d3-shape
-npm install d3-shape
+<i>Download/Clone -> npm install -> npm start</i>
 
-https://www.npmjs.com/package/react-dimensions
-npm install react-dimensions
+<h2>Components Used:</h2>
 
-https://www.npmjs.com/package/react-json-table
-npm install react-json-table --save
+	d3-scale - https://www.npmjs.com/package/d3-scale
+	
+	d3-shape - https://www.npmjs.com/package/d3-shape
 
-https://www.npmjs.com/package/tachyons
-npm install tachyons
+	react-dimensions - https://www.npmjs.com/package/react-dimensions
+	
+	tachyons(CSS) - https://www.npmjs.com/package/tachyons
